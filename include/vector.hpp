@@ -37,7 +37,7 @@ public:
     void Reserve(size_t new_cap);
 
 private:
-    std::unique_ptr<T[]> _arr;
+    std::shared_ptr<T[]> _arr;
     size_t _sz;
     size_t _cap;
 };

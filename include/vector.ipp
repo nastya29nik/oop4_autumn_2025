@@ -83,7 +83,7 @@ void Vector<T>::Reserve(size_t new_cap) {
     if (new_cap <= _cap) {
         return;
     }
-    std::unique_ptr<T[]> new_arr = std::make_unique<T[]>(new_cap);
+    std::shared_ptr<T[]> new_arr(new T[new_cap], std::default_delete<T[]>());
     for (size_t i = 0; i < _sz; ++i) {
         new_arr[i] = std::move(_arr[i]);
     }
